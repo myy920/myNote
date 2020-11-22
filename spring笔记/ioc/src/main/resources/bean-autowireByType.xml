@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+  自动注入: autowire针对引用类型自动注入
+      autowire="byType"忽略对象id+数据类型同源
+      autowire="byName"对象id和属性的名称一致+数据类型同源
+   -->
+    <bean id="student-myschool" class="com.myy.domain.Student" autowire="byType">
+        <property name="name" value="赵六"/>
+        <property name="age" value="22"/>
+    </bean>
+    <!--
+    当id = myshcool 时,能通过byName自动注入;
+    -->
+    <bean id="myschool" class="com.myy.domain.University">
+        <property name="schoolName" value="阿拉丁小学"/>
+        <property name="address" value="阿拉丁路18号"/>
+    </bean>
+
+</beans>

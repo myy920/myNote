@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--创建School对象: 简单数据类型(基本数据类型+string)使用value,复杂数据类型(对象)使用ref-->
+    <bean id="school" class="com.myy.domain.School">
+        <property name="schoolName" value="格兰小学"/>
+        <property name="address" value="格兰路118号"/>
+    </bean>
+
+    <!--
+    1.set注入:
+        使用property的属性需含有set方法
+    -->
+    <bean id="student-createBySet" class="com.myy.domain.Student">
+        <property name="name" value="张三"/>
+        <property name="age" value="19"/>
+        <property name="school" ref="school"/>
+    </bean>
+
+    <!--
+    2.构造器注入:
+        使用constructor-arg: 需含有对应参数的构造方法
+        可以按照name参数名称,也可以按照index参数索引
+    -->
+    <bean id="student-createByConst" class="com.myy.domain.Student">
+        <constructor-arg name="name" value="李四"/>
+        <constructor-arg name="age" value="20"/>
+        <constructor-arg name="school" ref="school"/>
+    </bean>
+
+</beans>
