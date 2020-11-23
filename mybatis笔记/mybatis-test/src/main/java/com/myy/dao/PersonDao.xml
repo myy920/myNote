@@ -1,0 +1,26 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myy.dao.PersonDao">
+    <!--int insert(String name, int age)-->
+    <insert id="insert">
+        insert into tab_person(name, age) values(#{name}, #{age})
+    </insert>
+
+    <!--int deleteById(long id)-->
+    <delete id="deleteById">
+        delete from tab_person where id = #{id}
+    </delete>
+
+    <!--int updateById(long id, String name, int age)-->
+    <update id="updateById">
+        update tab_person set name = #{name}, age = #{age} where id = #{id}
+    </update>
+
+    <!--List<Person> selectAll()-->
+    <select id="selectAll" resultType="com.myy.domain.Person">
+        select id,name,age from tab_person
+    </select>
+
+</mapper>
