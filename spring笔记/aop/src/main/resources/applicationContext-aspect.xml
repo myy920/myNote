@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 创建实体类对象 -->
+    <bean id="service1" class="com.myy.service.Service1"/>
+    <!-- 创建aspectj对象 -->
+    <bean id="aspect" class="com.myy.aspect.MyAspect"/>
+    <!-- 声明自动代理生成器 -->
+    <!-- 此类声明目标类有接口默认使用jdk的动态代理,如果目标类没有接口且能够被继承,就使用spring的cglib动态代理 -->
+    <aop:aspectj-autoproxy/>
+    <!-- 强制使用cglib动态代理 -->
+    <!-- <aop:aspectj-autoproxy proxy-target-class="true"/>-->
+
+</beans>
