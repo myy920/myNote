@@ -63,7 +63,7 @@ public class FirstService {
      * mybatis 和 spring 整合
      * spring容器中直接创建了接口的包含sql的JDK代理对象
      * 要求: 1.mapper.xml文件和接口同名;
- *          2.mapper.xml文件和接口在同一个包下, 或者在容器中指定了mapper.xml文件的位置
+     *      2.mapper.xml文件和接口在同一个包下, 或者在容器中指定了mapper.xml文件的位置
      */
 
 }
