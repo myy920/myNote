@@ -1,0 +1,22 @@
+server:
+  servlet:
+    context-path: /dev
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/db_springboot_test?serverTimezone=GMT%2B8
+    username: root
+    password: root
+    druid:
+      max-active: 20
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.springbootdemo.entity
+
+logging:
+  level:
+    com.example.springbootdemo.mapper: debug
