@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>person</title>
+    <base href="http://localhost:8080/dev/">
+    <script src="static/jquery/jquery-3.5.0.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn-sub").click(function () {
+                $.ajax({
+                    url:'person/add',
+                    method:'post',
+                    data:$("#personForm").serialize(),
+                    dataType:'json',
+                    success:function (returnData) {
+                        alert(returnData.message);
+                    }
+                });
+            });
+            $("#selectAll").click(function () {
+                $.ajax({
+                   url:'person/selectAll',
+                   method:'get',
+                   dataType: 'json',
+                   success: function (returnData) {
+                       $("#tab").empty();
+                       $.each(returnData.object, function (index, element) {
+                           $("#tab").append("  <tr>\n" +
+                               "            <td>"+index+"</td>\n" +
+                               "            <td>"+element.name+"</td>\n" +
+                               "            <td>"+element.age+"</td>\n" +
+                               "            <td>"+element.hobby+"</td>\n" +
+                               "        </tr>")
+                       });
+                   }
+                });
+            });
+            
+            
+        })
+    </script>
+</head>
+
+<body>
+    <form id="personForm">
+        添加person:<br>
+        姓名:<input type="text" name="name">
+        年龄:<input type="text" name="age">
+        爱好:<input type="text" name="hobby">
+        <input type="button" id="btn-sub" value="提交">
+    </form>
+    <hr color="green">
+    <input type="button" id="selectAll" value="查询所有用户">
+    <table id="tab">
+
+    </table>
+
+</body>
+</html>
