@@ -8,5 +8,9 @@
     <!--List<Person> selectAll();-->
     <select id="selectAll" resultType="com.example.springbootdemo.entity.Person">
         select id,name,age,hobby from tab_person
-  </select>
+    </select>
+    <!--List<Person> selectAllAndPage(RowBounds rowBounds);-->
+    <select id="selectAllAndPage" resultType="com.example.springbootdemo.entity.Person">
+        select id,name,age,hobby from tab_person
+    </select>
 </mapper>
