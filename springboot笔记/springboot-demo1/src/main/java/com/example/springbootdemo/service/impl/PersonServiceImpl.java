@@ -64,4 +64,15 @@ public class PersonServiceImpl implements PersonService {
         return people;
     }
 
+    @Override
+    public int add(Person person) {
+        int i = personMapper.insertPerson(person);
+        return i;
+    }
+
+    @Override
+    public List<Person> selectByNameLike(String name) {
+        List<Person> people = personMapper.selectByNameLike(name);
+        return people;
+    }
 }

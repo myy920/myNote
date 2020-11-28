@@ -13,4 +13,9 @@
     <select id="selectAllAndPage" resultType="com.example.springbootdemo.entity.Person">
         select id,name,age,hobby from tab_person
     </select>
+    <!--int insertPerson(String name, int age, String hobby);-->
+    <insert id="insertPerson" parameterType="com.example.springbootdemo.entity.Person"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into tab_person(name,age,hobby) values(#{name},#{age},#{hobby})
+    </insert>
 </mapper>

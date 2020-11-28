@@ -20,6 +20,8 @@ class PersonServiceImplTest {
 
     @Test
     void add() {
+        int add = personService.add("柳柳", 13, "跑步");
+        System.out.println(add);
 
     }
 
@@ -30,6 +32,7 @@ class PersonServiceImplTest {
         newPeople.forEach(person -> System.out.println(person));
     }
 
+
     @Test
     void selectAllAndPage() {
         List<Person> people = personService.selectAllAndPage(new RowBounds(3, 5));
@@ -38,7 +41,21 @@ class PersonServiceImplTest {
 
     @Test
     void selectAllAndPageHelper() {
-        List<Person> people = personService.selectAllAndPageHelper(1, 5);
+        List<Person> people = personService.selectAllAndPageHelper(2, 5);
+        people.forEach(person -> System.out.println(person));
+    }
+    @Test
+    void add1(){
+        Person person = new Person();
+        person.setName("官燕");
+        person.setAge(15);
+        person.setHobby("打架");
+        int add = personService.add(person);
+        System.out.println(person);
+    }
+    @Test
+    void selectByNameLike(){
+        List<Person> people = personService.selectByNameLike("燕");
         people.forEach(person -> System.out.println(person));
     }
 }

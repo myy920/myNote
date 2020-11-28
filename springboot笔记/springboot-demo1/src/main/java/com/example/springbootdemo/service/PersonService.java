@@ -9,9 +9,15 @@ public interface PersonService {
 
     int add(String name, int age, String hobby);
 
+    int add(Person person);
+
     List<Person> selectAll();
 
     List<Person> selectAllAndPage(RowBounds rowBounds);
 
     List<Person> selectAllAndPageHelper(int pageNum, int pageSize);
+
+    List<Person> selectByNameLike(String name);
+
+
 }
