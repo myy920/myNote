@@ -11,4 +11,9 @@ public class C {
         System.out.println("CImpl1的method2执行并返回结果:"+s);
         return s;
     }
+
+    private String method3(String s){
+        System.out.println("CImpl1的method3执行并返回结果:"+s);
+        return s;
+    }
 }

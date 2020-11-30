@@ -4,10 +4,9 @@ import com.example.springbootdemo.entity.Person;
 import com.example.springbootdemo.service.PersonService;
 import org.apache.ibatis.session.RowBounds;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+
 
 import java.util.List;
 
@@ -28,8 +27,8 @@ class PersonServiceImplTest {
     @Test
     void selectAll() {
         List<Person> people = personService.selectAll();
-        List<Person> newPeople = people.subList(1, 3);
-        newPeople.forEach(person -> System.out.println(person));
+        //List<Person> newPeople = people.subList(1, 3);
+        people.forEach(person -> System.out.println(person));
     }
 
 
@@ -44,8 +43,9 @@ class PersonServiceImplTest {
         List<Person> people = personService.selectAllAndPageHelper(2, 5);
         people.forEach(person -> System.out.println(person));
     }
+
     @Test
-    void add1(){
+    void add1() {
         Person person = new Person();
         person.setName("官燕");
         person.setAge(15);
@@ -53,9 +53,28 @@ class PersonServiceImplTest {
         int add = personService.add(person);
         System.out.println(person);
     }
+
     @Test
-    void selectByNameLike(){
+    void selectByNameLike() {
         List<Person> people = personService.selectByNameLike("燕");
         people.forEach(person -> System.out.println(person));
+    }
+    @Test
+    void selectById(){
+        Person person = personService.selectById(13);
+        System.out.println(person);
+    }
+
+    @Test
+    void redisTest(){
+        Thread thread = new Thread(){
+            @Override
+            public void run() {
+                for (int i = 0; i < 1000; i++) {
+                    personService.redisTest();
+                }
+            }
+        };
+        thread.start();
     }
 }

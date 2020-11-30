@@ -15,4 +15,9 @@ public class BImpl2 implements B {
         System.out.println("BImpl2的method2执行并返回结果:"+s);
         return s;
     }
+
+    @Override
+    public String method3(String s) {
+        return null;
+    }
 }

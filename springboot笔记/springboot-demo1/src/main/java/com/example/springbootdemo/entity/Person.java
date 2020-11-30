@@ -1,11 +1,29 @@
 package com.example.springbootdemo.entity;
 
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
     private long id;
     private String name;
     private int age;
     private String hobby;
+
+    public Person() {
+    }
+
+    public Person(String name, int age, String hobby) {
+        this.name = name;
+        this.age = age;
+        this.hobby = hobby;
+    }
+
+    public Person(long id, String name, int age, String hobby) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.hobby = hobby;
+    }
 
     public long getId() {
         return id;

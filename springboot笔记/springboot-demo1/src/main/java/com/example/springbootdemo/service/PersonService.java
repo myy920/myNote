@@ -19,5 +19,7 @@ public interface PersonService {
 
     List<Person> selectByNameLike(String name);
 
+    Person selectById(long id);
 
+    public void redisTest();
 }

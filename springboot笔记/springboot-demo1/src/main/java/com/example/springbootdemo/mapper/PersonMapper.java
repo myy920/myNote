@@ -29,6 +29,9 @@ public interface PersonMapper {
     @Select("select * from tab_person where name like concat('%',#{name},'%')")
     List<Person> selectByNameLike(String name);
 
+    @Select("select * from tab_person where id = #{id}")
+    Person selectById(long id);
+
 
 
 }

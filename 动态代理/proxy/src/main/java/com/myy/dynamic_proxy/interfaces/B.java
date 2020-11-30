@@ -4,4 +4,5 @@ public interface B {
 
     int method1(int n);
     String method2(String s);
+    String method3(String s);
 }
