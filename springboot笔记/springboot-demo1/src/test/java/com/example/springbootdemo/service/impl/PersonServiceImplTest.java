@@ -64,17 +64,4 @@ class PersonServiceImplTest {
         Person person = personService.selectById(13);
         System.out.println(person);
     }
-
-    @Test
-    void redisTest(){
-        Thread thread = new Thread(){
-            @Override
-            public void run() {
-                for (int i = 0; i < 1000; i++) {
-                    personService.redisTest();
-                }
-            }
-        };
-        thread.start();
-    }
 }
