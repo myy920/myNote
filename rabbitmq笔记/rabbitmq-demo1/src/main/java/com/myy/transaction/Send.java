@@ -37,15 +37,14 @@ public class Send {
             e.printStackTrace();
         } catch (TimeoutException e) {
             e.printStackTrace();
-        }catch (Exception e){
+        } catch (Exception e) {
             try {
                 channel.txRollback();
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
                 if (channel != null) channel.close();
                 if (connection != null) connection.close();

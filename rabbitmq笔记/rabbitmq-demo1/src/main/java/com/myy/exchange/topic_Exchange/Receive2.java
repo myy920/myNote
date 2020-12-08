@@ -19,13 +19,13 @@ public class Receive2 {
             connection = factory.newConnection();
             channel = connection.createChannel();
             channel.queueDeclare("T2-queue", true, false, false, null);
-            channel.exchangeDeclare("Topic-Exchange", "topic",true);
-            channel.queueBind("T2-queue", "Topic-Exchange", "aa.*",null);
+            channel.exchangeDeclare("Topic-Exchange", "topic", true);
+            channel.queueBind("T2-queue", "Topic-Exchange", "aa.*", null);
             channel.basicConsume("T2-queue", true, "", new DefaultConsumer(channel) {
                 @Override
                 public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                    String message = new String(body,"utf-8");
-                    System.out.println("Topic-receive2号接受的消息是:"+message);
+                    String message = new String(body, "utf-8");
+                    System.out.println("Topic-receive2号接受的消息是:" + message);
                 }
             });
         } catch (IOException e) {

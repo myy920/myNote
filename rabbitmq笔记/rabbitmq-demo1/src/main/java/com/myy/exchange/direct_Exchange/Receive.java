@@ -19,13 +19,13 @@ public class Receive {
             connection = factory.newConnection();
             channel = connection.createChannel();
             channel.queueDeclare("D-queue", true, false, false, null);
-            channel.exchangeDeclare("DirectExchangeName", "direct",true);
-            channel.queueBind("D-queue", "DirectExchangeName", "bind-rout-key",null);
+            channel.exchangeDeclare("DirectExchangeName", "direct", true);
+            channel.queueBind("D-queue", "DirectExchangeName", "bind-rout-key", null);
             channel.basicConsume("D-queue", true, "", new DefaultConsumer(channel) {
                 @Override
                 public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                    String message = new String(body,"utf-8");
-                    System.out.println("direct-exc接受的消息是:"+message);
+                    String message = new String(body, "utf-8");
+                    System.out.println("direct-exc接受的消息是:" + message);
                 }
             });
         } catch (IOException e) {
