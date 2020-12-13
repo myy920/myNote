@@ -14,4 +14,6 @@ public interface PersonDao {
 
     List<Person> selectAll();
 
+    int insertSome(List<Person> list);
+
 }
