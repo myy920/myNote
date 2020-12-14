@@ -10,14 +10,14 @@ import javax.servlet.http.HttpSession;
 
 public class PageInterceptor implements HandlerInterceptor {
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         System.out.println("perHandle");
         HttpSession session = request.getSession();
         Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
             if ("user".equals(cookie.getName())) {
-                if (cookie.getValue() != null && cookie.getValue() != ""){
-                    if (cookie.getValue().equals(session.getAttribute("user"))){
+                if (cookie.getValue() != null) {
+                    if (cookie.getValue().equals(session.getAttribute("user"))) {
                         return true;
                     }
                 }

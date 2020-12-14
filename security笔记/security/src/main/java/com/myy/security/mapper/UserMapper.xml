@@ -6,7 +6,7 @@
 <mapper namespace="com.myy.security.mapper.UserMapper">
 
     <!--User selectByUsername(String username);-->
-    <select id="selectByUsername" resultType="com.myy.security.entity.User">
+    <select id="selectByUsername" resultType="com.myy.security.entity.Users">
         select username,password from user where username = #{username}
     </select>
 </mapper>

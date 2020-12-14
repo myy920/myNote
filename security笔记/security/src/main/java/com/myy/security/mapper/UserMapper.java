@@ -1,8 +1,8 @@
 package com.myy.security.mapper;
 
-import com.myy.security.entity.User;
+import com.myy.security.entity.Users;
 
 public interface UserMapper {
 
-    User selectByUsername(String username);
+    Users selectByUsername(String username);
 }

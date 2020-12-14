@@ -1,10 +1,26 @@
 package com.myy.security.entity;
 
-public class User {
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+
+public class Users extends User {
     private long id;
     private String username;
     private  String password;
     private String desc;
+
+    public Users(String username, String password, Collection<? extends GrantedAuthority> authorities, long id, String username1, String password1, String desc) {
+        super(username, password, authorities);
+        this.id = id;
+        this.username = username1;
+        this.password = password1;
+        this.desc = desc;
+    }
+
+
 
     public long getId() {
         return id;
