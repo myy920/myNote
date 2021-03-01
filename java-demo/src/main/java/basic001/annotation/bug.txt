@@ -1,0 +1,9 @@
+test4方法出现异常!
+异常名称:ArithmeticException
+异常原因:/ by zero
+------------------------------
+test2方法出现异常!
+异常名称:ArithmeticException
+异常原因:/ by zero
+------------------------------
+本次一共出现2次异常!

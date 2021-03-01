@@ -1,0 +1,11 @@
+package basic001.generics;
+
+
+/**
+ *
+ * <? extends T>表示该通配符所代表的类型是T类型的子类。
+ * <? super T>表示该通配符所代表的类型是T类型的父类。
+ *
+ */
+public class Demo {
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="my_case.Data_to_Excel.Mysql_to_Excel.ProductMapper">
+
+    <!--int insertSome(List<Product> list);-->
+    <insert id="insertSome">
+        insert into tab_product(id,name,price,total) values
+        <foreach collection="list" separator="," item="product">
+            (#{product.id},#{product.name},#{product.price},#{product.total})
+        </foreach>
+    </insert>
+
+    <!--List<Product> selectAll();-->
+    <select id="selectAll" resultType="my_case.Data_to_Excel.Mysql_to_Excel.Product">
+        select id,name,price,total from tab_product
+    </select>
+</mapper>
